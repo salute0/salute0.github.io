@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>salute0&#39;s blogs</title>
+  
+  <subtitle>salute0</subtitle>
+  <link href="https://salute0.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://salute0.github.io/"/>
+  <updated>2021-06-02T04:37:46.244Z</updated>
+  <id>https://salute0.github.io/</id>
+  
+  <author>
+    <name>salute0</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows安装破解bupr2021</title>
+    <link href="https://salute0.github.io/posts/23801.html"/>
+    <id>https://salute0.github.io/posts/23801.html</id>
+    <published>2021-06-02T04:33:08.000Z</published>
+    <updated>2021-06-02T04:37:46.244Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;jdk我用的是11版本：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="工具安装" scheme="https://salute0.github.io/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
+    
+    
+    <category term="工具安装" scheme="https://salute0.github.io/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
+    
+    <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7部署PHP+Mysql+Apache</title>
+    <link href="https://salute0.github.io/posts/38006.html"/>
+    <id>https://salute0.github.io/posts/38006.html</id>
+    <published>2021-05-20T15:12:02.000Z</published>
+    <updated>2021-06-16T02:56:15.992Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-利用lanmp包一键安装&quot;&gt;&lt;a href=&quot;#1-利用lanmp包一键安装&quot; class=&quot;headerlink&quot; title=&quot;1.利用lanmp包一键安装&quot;&gt;&lt;/a&gt;1.利用lanmp包一键安装&lt;/h2&gt;&lt;h3 id=&quot;（1）先安装lanmp包&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://salute0.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://salute0.github.io/tags/Linux/"/>
+    
+    <category term="环境搭建" scheme="https://salute0.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="网页服务" scheme="https://salute0.github.io/tags/%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XMind思维导图XSS漏洞复现</title>
+    <link href="https://salute0.github.io/posts/7225.html"/>
+    <id>https://salute0.github.io/posts/7225.html</id>
+    <published>2021-05-17T08:12:09.000Z</published>
+    <updated>2021-06-16T02:55:08.559Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：XMind 是一个全功能的思维导图和头脑风暴软件，为激发灵感和创意而生。作为一款有效提升工作和生活效率的生产力工具，受到全球百千万用户的青睐。近期各大公众号平台曝出XMind</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞复现" scheme="https://salute0.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="漏洞复现" scheme="https://salute0.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    <category term="XSS" scheme="https://salute0.github.io/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7服务器安装java环境</title>
+    <link href="https://salute0.github.io/posts/62838.html"/>
+    <id>https://salute0.github.io/posts/62838.html</id>
+    <published>2021-05-17T04:46:42.000Z</published>
+    <updated>2021-06-16T02:50:46.207Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。&lt;/p&gt;
+&lt;h2 id=&quot;1-打开url选择jdk1-8下载&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://salute0.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://salute0.github.io/tags/Linux/"/>
+    
+    <category term="菜鸡日常" scheme="https://salute0.github.io/tags/%E8%8F%9C%E9%B8%A1%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+</feed>
