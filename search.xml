@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Windows建立隐藏用户远程连接</title>
+      <link href="/posts/ca44.html"/>
+      <url>/posts/ca44.html</url>
+      
+        <content type="html"><![CDATA[<p>前言：迷迷糊糊记得通过net user aaa$ /add可以隐藏windows账户，但是这个隐藏只能在命令行中隐藏在本地用户和组中暴露无遗，于是就想着如何在计算机管理中也隐藏账户。</p><h2 id="注册表隐藏账户"><a href="#注册表隐藏账户" class="headerlink" title="注册表隐藏账户"></a>注册表隐藏账户</h2><h3 id="1-赋予管理员注册表操作权限"><a href="#1-赋予管理员注册表操作权限" class="headerlink" title="1.赋予管理员注册表操作权限"></a>1.赋予管理员注册表操作权限</h3><p>我们打开注册表来到“HKEY_LOCAL_MACHINE\SAM\SAM”处我们发现我们展开其中的键值也无法进行修改。这时我们需要给当前管理员账户注册表的操作权限。左上角编辑–&gt;权限–&gt;选中你想赋予权限的用户–&gt;在完全控制上打勾–&gt;确定。</p><p><img src="../images/Windows%E5%BB%BA%E7%AB%8B%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/1.png"></p><p>这样我们就可以展开并且修改SAM下的键值了。</p><p><img src="../images/Windows%E5%BB%BA%E7%AB%8B%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/2.png"></p><h3 id="2-将隐藏账户替换为管理员"><a href="#2-将隐藏账户替换为管理员" class="headerlink" title="2.将隐藏账户替换为管理员"></a>2.将隐藏账户替换为管理员</h3><p>来到注册表编辑器的”HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\Names”处，当前系统中所有存在的账户都会在这里显示，当然也包括我们先前通过net user aaa$ /add添加的隐藏账户。</p><p><img src="../images/Windows%E5%BB%BA%E7%AB%8B%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/3.png"></p><p>我们查看它的值为“0x3ea”和前面users中000003EA相对应。（Administrator的值为”0x1f4”）。我们将aaa$导出为aaa$.reg。将aaa$对应的000003EA导出为user.reg，将000001F4导出为admin.reg。然后我们将admin.reg中F后面的值（图片中我标蓝的）复制到user.reg保存。我们先将我们建立的隐藏账户aaa$删除然后将user.reg和aaa$.reg导入注册表。这个时候我们就成功将隐藏彰化替换为管理员账户了。</p><p><img src="../images/Windows%E5%BB%BA%E7%AB%8B%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/4.png"></p><p>此时我们在cmd以及本地用户和组中都无法发现我们的隐藏账户aaa$但是在注册表中可以看见，于是我们就可以将先前赋予管理员注册表中SUM的操作权限删除。</p><h3 id="3-取消先前赋予管理员的注册表权限"><a href="#3-取消先前赋予管理员的注册表权限" class="headerlink" title="3.取消先前赋予管理员的注册表权限"></a>3.取消先前赋予管理员的注册表权限</h3><p>老规矩，来到“HKEY_LOCAL_MACHINE\SAM\SAM”处，左上角编辑–&gt;权限–&gt;选中你想赋予权限的用户–&gt;全部选择拒绝。这样当真正的管理员想对”HKEY_LOCAL_MACHINE\SAM\SAM”下面的项进行操作的时候将会发生错误。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+            <tag> Windows后门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>windows安装破解bupr2021</title>
       <link href="/posts/23801.html"/>
       <url>/posts/23801.html</url>

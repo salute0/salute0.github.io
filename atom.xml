@@ -6,7 +6,7 @@
   <link href="https://salute0.github.io/atom.xml" rel="self"/>
   
   <link href="https://salute0.github.io/"/>
-  <updated>2021-06-02T04:37:46.244Z</updated>
+  <updated>2021-06-19T08:19:55.373Z</updated>
   <id>https://salute0.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows建立隐藏用户远程连接</title>
+    <link href="https://salute0.github.io/posts/ca44.html"/>
+    <id>https://salute0.github.io/posts/ca44.html</id>
+    <published>2021-06-19T07:34:51.000Z</published>
+    <updated>2021-06-19T08:19:55.373Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前言：迷迷糊糊记得通过net user aaa$ /add可以隐藏windows账户，但是这个隐藏只能在命令行中隐藏在本地用户和组中暴露无遗，于是就想着如何在计算机管理中也隐藏账户。&lt;/p&gt;
+&lt;h2 id=&quot;注册表隐藏账户&quot;&gt;&lt;a href=&quot;#注册表隐藏账户&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="渗透测试" scheme="https://salute0.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Windows后门" scheme="https://salute0.github.io/tags/Windows%E5%90%8E%E9%97%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>windows安装破解bupr2021</title>
@@ -48,7 +76,7 @@
     <link href="https://salute0.github.io/posts/38006.html"/>
     <id>https://salute0.github.io/posts/38006.html</id>
     <published>2021-05-20T15:12:02.000Z</published>
-    <updated>2021-06-16T02:56:15.992Z</updated>
+    <updated>2021-06-19T07:45:52.720Z</updated>
     
     
       
