@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="salute0's blogs" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="salute0's blogs" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -512,19 +512,19 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/24.jpg');">
+                 style="background-image: url('/medias/featureimages/15.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">windows安装破解bupr2021</div>
+                            <div class="title center-align">Windows建立隐藏用户远程连接</div>
                             <div class="description center-align">
                                 
-                                    jdk我用的是11版本：https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
-burpsuite破解工具：https://github.com/h3110w
+                                    前言：迷迷糊糊记得通过net user aaa$ /add可以隐藏windows账户，但是这个隐藏只能在命令行中隐藏在本地用户和组中暴露无遗，于是就想着如何在计算机管理中也隐藏账户。
+注册表隐藏账户1.赋予管理员注册表操作权限我们打开注册表
                                 
                             </div>
                             <div class="cover-btns">
-                                <a href="/posts/23801.html" class="waves-effect waves-light btn"
+                                <a href="/posts/ca44.html" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -560,19 +560,45 @@ burpsuite破解工具：https://github.com/h3110w
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/15.jpg');">
+                 style="background-image: url('/medias/featureimages/14.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">Windows建立隐藏用户远程连接</div>
+                            <div class="title center-align">apache shiro 反序列化复现</div>
                             <div class="description center-align">
                                 
-                                    前言：迷迷糊糊记得通过net user aaa$ /add可以隐藏windows账户，但是这个隐藏只能在命令行中隐藏在本地用户和组中暴露无遗，于是就想着如何在计算机管理中也隐藏账户。
-注册表隐藏账户1.赋予管理员注册表操作权限我们打开注册表
+                                    靶场搭建
+docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart docker        #重启docker
+docker run -d -p 80
                                 
                             </div>
                             <div class="cover-btns">
-                                <a href="/posts/ca44.html" class="waves-effect waves-light btn"
+                                <a href="/posts/af27.html" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/24.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">windows安装破解bupr2021</div>
+                            <div class="description center-align">
+                                
+                                    jdk我用的是11版本：https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
+burpsuite破解工具：https://github.com/h3110w
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/posts/23801.html" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -699,6 +725,62 @@ burpsuite破解工具：https://github.com/h3110w
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/posts/af27.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="apache shiro 反序列化复现">
+                            
+                            <span class="card-title">apache shiro 反序列化复现</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                靶场搭建
+docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart docker        #重启docker
+docker run -d -p 80
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
+                                    漏洞复现
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+                            <span class="chip bg-color">漏洞复现</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/posts/ca44.html">
                         <div class="card-image">
                             
@@ -736,12 +818,12 @@ burpsuite破解工具：https://github.com/h3110w
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
-                            <span class="chip bg-color">渗透测试</span>
-                        </a>
-                        
                         <a href="/tags/Windows%E5%90%8E%E9%97%A8/">
                             <span class="chip bg-color">Windows后门</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                            <span class="chip bg-color">渗透测试</span>
                         </a>
                         
                     </div>
@@ -790,12 +872,12 @@ burpsuite破解工具：https://github.com/h3110w
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/">
-                            <span class="chip bg-color">工具安装</span>
-                        </a>
-                        
                         <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
                             <span class="chip bg-color">渗透测试</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/">
+                            <span class="chip bg-color">工具安装</span>
                         </a>
                         
                     </div>
@@ -1056,7 +1138,7 @@ burpsuite破解工具：https://github.com/h3110w
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.4k</span>
+                        class="white-color">3k</span>
             
             
             

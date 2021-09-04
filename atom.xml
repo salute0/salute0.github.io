@@ -6,7 +6,7 @@
   <link href="https://salute0.github.io/atom.xml" rel="self"/>
   
   <link href="https://salute0.github.io/"/>
-  <updated>2021-06-19T08:20:02.919Z</updated>
+  <updated>2021-09-04T12:44:13.089Z</updated>
   <id>https://salute0.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>apache shiro 反序列化复现</title>
+    <link href="https://salute0.github.io/posts/af27.html"/>
+    <id>https://salute0.github.io/posts/af27.html</id>
+    <published>2021-09-04T12:35:17.000Z</published>
+    <updated>2021-09-04T12:44:13.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;靶场搭建&lt;/p&gt;
+&lt;pre class=&quot; language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞复现" scheme="https://salute0.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://salute0.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    <category term="Web" scheme="https://salute0.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows建立隐藏用户远程连接</title>
@@ -38,9 +67,9 @@
     <category term="渗透测试" scheme="https://salute0.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-    <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="Windows后门" scheme="https://salute0.github.io/tags/Windows%E5%90%8E%E9%97%A8/"/>
+    
+    <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -65,9 +94,9 @@
     <category term="工具安装" scheme="https://salute0.github.io/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
     
     
-    <category term="工具安装" scheme="https://salute0.github.io/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
-    
     <category term="渗透测试" scheme="https://salute0.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="工具安装" scheme="https://salute0.github.io/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
